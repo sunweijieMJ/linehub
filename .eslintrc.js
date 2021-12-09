@@ -67,7 +67,7 @@ module.exports = defineConfig({
       'no-shadow': 'off', // 禁止变量声明覆盖外层作用域的变量
       'no-param-reassign': 'off', // 禁止对函数参数再赋值
       'no-plusplus': 'off', // 禁止使用一元表达式
-      'func-names': 'off', // 要求或禁止使用命名的 function 表达式
+      'func-names': 'off', // 要求或禁止使用命名的function表达式
       'import/prefer-default-export': 'off', // 需要有默认导出
       'prefer-destructuring': ['error', {'array': false, 'object': false}], // 优先使用数组和对象解构(不强制)
       'no-else-return': ['error',{allowElseIf: true}], // 禁止在else之前返回

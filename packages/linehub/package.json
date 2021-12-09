@@ -1,11 +1,10 @@
 {
   "name": "linehub",
-  "version": "0.0.0-dev.1",
+  "version": "1.0.0-dev",
   "description": "A Component Library for Vue 3",
   "homepage": "https://linehub.org/",
   "keywords": [
     "linehub",
-    "element",
     "component library",
     "ui framework",
     "ui",
