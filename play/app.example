@@ -1,0 +1,12 @@
+<template>
+  <div class="demo">
+    <ElSwitch v-model="checkValue1" />
+    <LineSwitch v-model:checked="checkValue2" />
+  </div>
+</template>
+<script setup lang="ts">
+import { ref } from 'vue';
+
+const checkValue1 = ref(false);
+const checkValue2 = ref(false);
+</script>

@@ -1,0 +1,11 @@
+.line-image {
+  height: inherit;
+  pointer-events: none;
+  width: inherit;
+
+  .default {
+    height: inherit;
+    object-fit: v-bind(fit);
+    width: inherit;
+  }
+}

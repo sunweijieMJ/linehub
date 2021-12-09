@@ -1,0 +1,125 @@
+{
+  "private": true,
+  "packageManager": "pnpm@6.23.6",
+  "workspaces": [
+    "packages/*",
+    "play",
+    "docs"
+  ],
+  "engines": {
+    "node": ">= 16"
+  },
+  "scripts": {
+    "cz": "git-cz",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "dev": "pnpm -C play dev",
+    "gen": "bash ./scripts/gc.sh",
+    "gen:version": "sucrase-node scripts/gen-version.ts",
+    "update:version": "sucrase-node scripts/update-version.ts",
+    "clean": "pnpm run clean:lib && pnpm run clean -r --stream",
+    "clean:lib": "rimraf dist",
+    "build": "gulp --require sucrase/register/ts -f build/gulpfile.ts",
+    "build:theme": "pnpm run build -C packages/theme-chalk",
+    "format": "prettier --write .",
+    "lint": "pnpm run lint:script && pnpm run lint:style && pretty-quick --check --branch dev",
+    "lint:fix": "pnpm run lint:script && pnpm run lint:style && pretty-quick --branch dev",
+    "lint:script": "eslint . --ext .js,.ts,.jsx,.tsx,.vue",
+    "lint:style": "stylelint 'packages/**/*.{css,scss,less,vue}'",
+    "docs:dev": "pnpm run -C docs dev",
+    "docs:build": "pnpm run -C docs build",
+    "docs:serve": "pnpm run -C docs serve",
+    "prepare": "husky install",
+    "postinstall": "pnpm gen:version",
+    "preinstall": "npx only-allow pnpm -y"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,vue}": [
+      "pnpm run lint:script"
+    ],
+    "*.{css,scss,less,vue}": [
+      "pnpm run lint:style"
+    ]
+  },
+  "browserslist": [
+    "> 1%",
+    "not ie 11",
+    "not op_mini all"
+  ],
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
+  "dependencies": {
+    "@linehub/components": "workspace:*",
+    "@linehub/directives": "workspace:*",
+    "@linehub/hooks": "workspace:*",
+    "@linehub/locale": "workspace:*",
+    "@linehub/theme-chalk": "workspace:*",
+    "@linehub/utils": "workspace:*",
+    "@vueuse/core": "^7.0.0",
+    "dayjs": "^1.10.7",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "15.0.0",
+    "@commitlint/config-conventional": "15.0.0",
+    "@pnpm/find-workspace-packages": "3.1.26",
+    "@pnpm/logger": "4.0.0",
+    "@pnpm/types": "7.6.0",
+    "@rollup/plugin-commonjs": "21.0.1",
+    "@rollup/plugin-node-resolve": "13.0.6",
+    "@rollup/plugin-replace": "3.0.0",
+    "@types/gulp": "4.0.9",
+    "@types/lodash": "4.14.177",
+    "@types/sass": "1.43.1",
+    "@types/through2": "2.0.36",
+    "@typescript-eslint/eslint-plugin": "5.5.0",
+    "@typescript-eslint/parser": "5.5.0",
+    "@vue/compiler-sfc": "3.2.23",
+    "@vue/shared": "3.2.23",
+    "@vue/test-utils": "2.0.0-rc.16",
+    "chalk": "4.1.2",
+    "components-helper": "1.0.4",
+    "cz-conventional-changelog": "3.3.0",
+    "esbuild": "0.14.1",
+    "eslint": "8.3.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-define-config": "1.2.0",
+    "eslint-import-resolver-alias": "1.1.2",
+    "eslint-plugin-html": "6.2.0",
+    "eslint-plugin-import": "2.25.3",
+    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-vue": "8.1.1",
+    "expect-type": "0.13.0",
+    "fast-glob": "3.2.7",
+    "gulp": "4.0.2",
+    "gulp-typescript": "6.0.0-alpha.1",
+    "husky": "7.0.4",
+    "lint-staged": "12.1.2",
+    "prettier": "2.5.0",
+    "pretty-quick": "3.1.2",
+    "rimraf": "3.0.2",
+    "rollup": "2.60.2",
+    "rollup-plugin-css-only": "3.1.0",
+    "rollup-plugin-esbuild": "4.7.2",
+    "rollup-plugin-filesize": "9.1.1",
+    "rollup-plugin-vue": "6.0.0",
+    "sass": "1.44.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-sass-guidelines": "^8.0.0",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-order": "^4.1.0",
+    "sucrase": "3.20.3",
+    "through2": "4.0.2",
+    "ts-morph": "13.0.2",
+    "typescript": "4.5.2",
+    "vue": "3.2.23",
+    "vue-router": "4.0.12",
+    "vue-tsc": "0.29.8"
+  }
+}
