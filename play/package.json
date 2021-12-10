@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "element-plus": "^1.2.0-beta.5",
-    "linehub": "^1.1.3",
+    "linehub": "link:.yalc/linehub",
     "vue": "^3.2.23"
   },
   "devDependencies": {

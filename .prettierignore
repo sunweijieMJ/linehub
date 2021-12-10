@@ -1,5 +1,6 @@
-dist
 node_modules
+.yalc
+dist
 .eslintrc.js
 pnpm-lock.yaml
 CHANGELOG.md
